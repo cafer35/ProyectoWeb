@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>Tattoo Studio</title>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
   <!-- CSS -->
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">
 <link rel="stylesheet" href="assets/css/fonts/linecons/css/linecons.css">
@@ -24,6 +26,13 @@
   <!-- JQuery
   <script src="assets\js\jquery-3.2.0.js"></script>
 -->
+
+<!-- Slideshow -->
+<!-- bxSlider Javascript file -->
+<script src="assets\js\jquery.bxslider.min.js"></script>
+<!-- bxSlider CSS file -->
+<link href="assets\js\jquery.bxslider.css" rel="stylesheet" />
+
 
 </head>
 <body>
@@ -79,6 +88,61 @@
 
     <div class="sidebar-menu-inner">
     </div>
+
+    <h2>Tribales</h2>
+    <div class="row">
+        <div class="col-md-6">
+        <ul class="bxslider">
+          <li><img src="img\tribales\pic_tribales.jpg" ></li>
+          <li><img src="img\tribales\pic_tribales1.jpg" ></li>
+          <li><img src="img\tribales\pic_tribales2.jpg" ></li>
+          <li><img src="img\tribales\pic_tribales3.jpg" ></li>
+          <li><img src="img\tribales\pic_tribales4.jpg" ></li>
+          <li><img src="img\tribales\pic_tribales5.jpg" ></li>
+          <li><img src="img\tribales\pic_tribales6.jpg" ></li>
+          <li><img src="img\tribales\pic_tribales7.jpg" ></li>
+          <li><img src="img\tribales\pic_tribales8.jpg" ></li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <div class="panel panel-inverted"><!-- Add class "collapsed" to minimize the panel -->
+						<div class="panel-heading">
+							<h3 class="panel-title">Descripción</h3>
+
+							<div class="panel-options">
+								<a href="#" data-toggle="panel">
+									<span class="collapse-icon">&ndash;</span>
+									<span class="expand-icon">+</span>
+								</a>
+
+								<a href="#" data-toggle="remove">
+									&times;
+								</a>
+							</div>
+						</div>
+            <div class="panel-body">
+
+							<p>
+							Los tribales no son figuras, sino símbolos que se tatúan ya sea por
+							su significado o por su atractivo estético. Estos tatuajes suelen
+							respetar un patrón geométrico definido y, por su apariencia, 
+							recuerdan a los símbolos que se pintaban las antiguas tribus por 
+							motivos religiosos o ceremoniales.
+							</p>
+
+
+						</div>
+					</div>
+
+				</div>
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function(){
+        $('.bxslider').bxSlider();
+      });
+    </script>
 
     <hr>
     <h6>Ulacit 2017 - Desarrollo de Aplicaciones Web</h6>
