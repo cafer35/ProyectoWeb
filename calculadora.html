@@ -1,110 +1,245 @@
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html>
 <head>
-  <title>Tattoo Studio</title>
-  <!-- CSS -->
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">
-<link rel="stylesheet" href="assets/css/fonts/linecons/css/linecons.css">
-<link rel="stylesheet" href="assets/css/fonts/fontawesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="assets/css/bootstrap.css">
-<link rel="stylesheet" href="assets/css/xenon-core.css">
-<link rel="stylesheet" href="assets/css/xenon-forms.css">
-<link rel="stylesheet" href="assets/css/xenon-components.css">
-<link rel="stylesheet" href="assets/css/xenon-skins.css">
-<link rel="stylesheet" href="assets/css/custom.css">
+    <title>Tattoo Studio</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">
+    <link rel="stylesheet" href="assets/css/fonts/linecons/css/linecons.css">
+    <link rel="stylesheet" href="assets/css/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/xenon-core.css">
+    <link rel="stylesheet" href="assets/css/xenon-forms.css">
+    <link rel="stylesheet" href="assets/css/xenon-components.css">
+    <link rel="stylesheet" href="assets/css/xenon-skins.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="assets/js/jquery-1.11.1.min.js"></script>
 
-<script src="assets/js/jquery-1.11.1.min.js"></script>
-
-  <!-- Xenon JS -->
-
-  <!-- JQuery UI -->
-  <script src="assets\jquery-ui-1.12.1\jquery-ui.js"></script>
-  <script src="assets\jquery-ui-1.12.1\jquery-ui.min.js"></script>
-
-  <!-- JQuery
-  <script src="assets\js\jquery-3.2.0.js"></script>
--->
-
+        <!-- Xenon JS -->
+        <!-- JQuery UI -->
+    <script src="assets\jquery-ui-1.12.1\jquery-ui.js"></script>
+    <script src="assets\jquery-ui-1.12.1\jquery-ui.min.js"></script>
+    <!-- JQuery
+      <script src="assets\js\jquery-3.2.0.js"></script>
+    -->
+    <style>     
+    .labelTotal{
+    border: 1px solid #e7ecf1;
+    padding: 15px 15px 15px;
+    }
+         </style>
 </head>
 <body>
-  <div class="container">
+    <div class="container">
+        <nav class="navbar navbar-inverse" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="index.html">Tattoo Studio</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="citas.html"><i class="fa fa-calendar"></i> Citas</a>
+                    </li>
+                    <li>
+                        <a href="calculadora.html"><i class="fa fa-calculator"></i> Calculadora</a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/Tattoo-Studio-Ulacit-132379930633519/?ref=page_internal">
+                            <i class="fa fa-facebook-square"></i> Facebook
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-shekel"></i> Tipos de Tatuajes <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu dropdown-primary">
+                            <li>
+                                <a href="oldschool.html">Old School</a>
+                            </li>
+                            <li>
+                                <a href="puntillismo.html">Puntillismo</a>
+                            </li>
+                            <li>
+                                <a href="tribales.html">Tribales</a>
+                            </li>
+                            <li>
+                                <a href="modernos.html">Modernos</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="contacto.html"><i class="fa fa-envelope"></i> Contacto</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+        <div class="sidebar-menu-inner">
+        </div>
+        <div class="container">
+            <h2>Calculadora de Tatuajes</h2>
 
-    <nav class="navbar navbar-inverse" role="navigation">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-						<span class="sr-only">Toggle navigation</span>
-						<i class="fa-bars"></i>
-					</button>
-					<a class="navbar-brand" href="index.html">Tattoo Studio</a>
-				</div>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="selectTipoTatuaje" class="col-sm-2 control-label">Tipo de Tatuaje</label>
+                    <div class="col-sm-10">
+                        <select id="selectTipoTatuaje" name="selectTipoTatuaje" class="form-control"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="selectCantidadColores" class="col-sm-2 control-label">Cantidad de colores</label>
+                    <div class="col-sm-10">
+                        <select id="selectCantidadColores" name="selectCantidadColores" class="form-control">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3 </option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                        </select>
 
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-					<ul class="nav navbar-nav">
-            <li>
-							<a href="citas.html"><i class="fa fa-calendar"></i> Citas</a>
-						</li>
-            <li>
-							<a href="calculadora.html"><i class="fa fa-calculator"></i> Calculadora</a>
-						</li>
-						<li>
-							<a href="https://www.facebook.com/Tattoo-Studio-Ulacit-132379930633519/?ref=page_internal">
-                <i class="fa fa-facebook-square"></i> Facebook</a>
-						</li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <i class="fa fa-shekel"></i> Tipos de Tatuajes <b class="caret"></b></a>
-							<ul class="dropdown-menu dropdown-primary">
-								<li>
-									<a href="oldschool.html">Old School</a>
-								</li>
-								<li>
-									<a href="puntillismo.html">Puntillismo</a>
-								</li>
-								<li>
-									<a href="tribales.html">Tribales</a>
-								</li>
-								<li>
-									<a href="modernos.html">Modernos</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="selectTamanoTatuaje" class="col-sm-2 control-label">Tamaño del Tatuaje</label>
+                    <div class="col-sm-10">
+                        <select id="selectTamanoTatuaje" name="selectTamanoTatuaje" class="form-control">
+                          
+                        </select>
 
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="contacto.html"><i class="fa fa-envelope"></i> Contacto</a>
-						</li>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" id="BtnCalcular" class="btn btn-default">Calcular</button>
+                    </div>
+                </div>
+            </form>
+        </div>
 
-					</ul>
-				</div>
-				<!-- /.navbar-collapse -->
-			</nav>
-
-    <div class="sidebar-menu-inner">
+        <!-- Label del total-->
+        <h1 align="center"><span class="labelTotal" id="resultadoTotal">Total a pagar: 0</span></h1 align="center">    
+          <hr>
+        <h6>Ulacit 2017 - Desarrollo de Aplicaciones Web</h6>
     </div>
-
-    <h2>Calculadora de Tatuajes</h2>
-
-    <hr>
-    <h6>Ulacit 2017 - Desarrollo de Aplicaciones Web</h6>
-  </div>
-
-  <!-- Bottom Scripts -->
-  	<script src="assets/js/bootstrap.min.js"></script>
-  	<script src="assets/js/TweenMax.min.js"></script>
-  	<script src="assets/js/resizeable.js"></script>
-  	<script src="assets/js/joinable.js"></script>
-  	<script src="assets/js/xenon-api.js"></script>
-  	<script src="assets/js/xenon-toggles.js"></script>
-
-
-  	<!-- JavaScripts initializations and stuff -->
-  	<script src="assets/js/xenon-custom.js"></script>
-
+    <!-- Bottom Scripts -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/TweenMax.min.js"></script>
+    <script src="assets/js/resizeable.js"></script>
+    <script src="assets/js/joinable.js"></script>
+    <script src="assets/js/xenon-api.js"></script>
+    <script src="assets/js/xenon-toggles.js"></script>
+    <!-- JavaScripts initializations and stuff -->
+    <script src="assets/js/xenon-custom.js"></script>
     <div class="page-loading-overlay">
-				<div class="loader-2"></div>
-			</div>
+        <div class="loader-2"></div>
+    </div>
+    <script>
 
+        //objetos tipos de tatuajes
+        var oldSchool={
+            precio:90000,
+            nombre:"Old school",
+            id:1
+        };
+        var puntillismo={
+            precio:100000,
+            nombre:"Puntillismo",
+            id:2
+        };
+        var tribales={
+            precio:150000,
+            nombre:"Tribales",
+            id:3
+        };
+        var moderno={
+            precio:135000,
+            nombre:"Moderno",
+            id:4
+        };
+
+        var tatuajes = [oldSchool, puntillismo, tribales, moderno];
+
+        //objetos tamaños de tatuajes
+        var pequeno={
+            precio:20000,
+            nombre:"pequeno",
+            id:10
+        };
+        var mediano={
+            precio:40000,
+            nombre:"mediano",
+            id:11
+        };
+        var grande={
+            precio:60000,
+            nombre:"grande",
+            id:12
+        };
+
+        var tamanoTatuajes=[pequeno,mediano,grande];
+
+        $(document).ready(function () {
+            $("#BtnCalcular").click(function () {
+
+                // Obtener tatuaje seleccionado y precio
+                var tipoTatuajeSeleccionado= $("#selectTipoTatuaje option:selected").val();
+                var precioBase=0;
+                $.each(tatuajes, function (i, item) {
+                    if (tipoTatuajeSeleccionado==item.id){
+                        precioBase= item.precio;
+                    }
+                });
+
+                //Obtener la cantidad de colores seleccionado y precio
+                var precioBaseColores=5000;
+                var cantidadDeColoresSeleccionado= $("#selectCantidadColores option:selected").val();
+                var totalCantidadColores=precioBaseColores*cantidadDeColoresSeleccionado;
+
+                //Obtener el tamaño del tatuaje y precio
+                var tamanoTatuajeSeleccionado= $("#selectTamanoTatuaje option:selected").val();
+                var precioBaseTamano=0;
+                $.each(tamanoTatuajes, function (i, item) {
+                    if (tamanoTatuajeSeleccionado==item.id){
+                        precioBaseTamano= item.precio;
+                    }
+                });
+
+                  var total= precioBase+totalCantidadColores+precioBaseTamano;
+                  $('#resultadoTotal').text("Total a pagar: "+ total);
+            });
+            //Llenar el select de tipo de tatuaje
+            $.each(tatuajes, function (i, item) {
+                $('#selectTipoTatuaje').append($('<option>', {
+                    value: item.id,
+                    text: item.nombre
+                }));
+            });
+            //Llenar el select de tamaño de tatuaje
+            $.each(tamanoTatuajes, function (i, item) {
+                $('#selectTamanoTatuaje').append($('<option>', {
+                    value: item.id,
+                    text: item.nombre
+                }));
+            });
+         
+        });
+    </script>
 </body>
 </html>
