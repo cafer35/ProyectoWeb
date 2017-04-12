@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Tattoo Studio</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <!-- CSS -->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">
     <link rel="stylesheet" href="assets/css/fonts/linecons/css/linecons.css">
@@ -21,7 +22,7 @@
     <!-- JQuery
       <script src="assets\js\jquery-3.2.0.js"></script>
     -->
-    <style>     
+    <style>
     .labelTotal{
     border: 1px solid #e7ecf1;
     padding: 15px 15px 15px;
@@ -85,17 +86,18 @@
         </div>
         <div class="container">
             <h2>Calculadora de Tatuajes</h2>
-
+            <div class="row">
+              <div class="col-md-6">
             <form class="form-horizontal">
                 <div class="form-group">
-                    <label for="selectTipoTatuaje" class="col-sm-2 control-label">Tipo de Tatuaje</label>
-                    <div class="col-sm-10">
+                    <label for="selectTipoTatuaje" class="col-sm-4 control-label">Tipo de Tatuaje</label>
+                    <div class="col-sm-8">
                         <select id="selectTipoTatuaje" name="selectTipoTatuaje" class="form-control"></select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="selectCantidadColores" class="col-sm-2 control-label">Cantidad de colores</label>
-                    <div class="col-sm-10">
+                    <label for="selectCantidadColores" class="col-sm-4 control-label">Cantidad de colores</label>
+                    <div class="col-sm-8">
                         <select id="selectCantidadColores" name="selectCantidadColores" class="form-control">
                             <option>1</option>
                             <option>2</option>
@@ -117,24 +119,28 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="selectTamanoTatuaje" class="col-sm-2 control-label">Tamaño del Tatuaje</label>
-                    <div class="col-sm-10">
+                    <label for="selectTamanoTatuaje" class="col-sm-4 control-label">TamaÃ±o del Tatuaje</label>
+                    <div class="col-sm-8">
                         <select id="selectTamanoTatuaje" name="selectTamanoTatuaje" class="form-control">
-                          
+
                         </select>
 
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
+                    <div class="col-sm-offset-4 col-sm-8">
                         <button type="button" id="BtnCalcular" class="btn btn-default">Calcular</button>
                     </div>
                 </div>
             </form>
-        </div>
+          </div>
 
+        <div class="col-md-6">
         <!-- Label del total-->
-        <h1 align="center"><span class="labelTotal" id="resultadoTotal">Total a pagar: 0</span></h1 align="center">    
+        <h1 align="center"><span class="labelTotal" id="resultadoTotal">Total a pagar: 0</span></h1 align="center">
+          <br><h1 align="center"><span class="labelTotal" id="resultadoDolares"></span></h1 align="center">
+        </div>
+        </div>
           <hr>
         <h6>Ulacit 2017 - Desarrollo de Aplicaciones Web</h6>
     </div>
@@ -176,10 +182,10 @@
 
         var tatuajes = [oldSchool, puntillismo, tribales, moderno];
 
-        //objetos tamaños de tatuajes
+        //objetos tamaï¿½os de tatuajes
         var pequeno={
             precio:20000,
-            nombre:"pequeno",
+            nombre:"pequeÃ±o",
             id:10
         };
         var mediano={
@@ -212,7 +218,7 @@
                 var cantidadDeColoresSeleccionado= $("#selectCantidadColores option:selected").val();
                 var totalCantidadColores=precioBaseColores*cantidadDeColoresSeleccionado;
 
-                //Obtener el tamaño del tatuaje y precio
+                //Obtener el tamaï¿½o del tatuaje y precio
                 var tamanoTatuajeSeleccionado= $("#selectTamanoTatuaje option:selected").val();
                 var precioBaseTamano=0;
                 $.each(tamanoTatuajes, function (i, item) {
@@ -222,7 +228,8 @@
                 });
 
                   var total= precioBase+totalCantidadColores+precioBaseTamano;
-                  $('#resultadoTotal').text("Total a pagar: "+ total);
+                  $('#resultadoTotal').text("Total a pagar: Â¢"+ total);
+                  $('#resultadoDolares').text("--> $" + Math.round((total/568)));
             });
             //Llenar el select de tipo de tatuaje
             $.each(tatuajes, function (i, item) {
@@ -231,14 +238,14 @@
                     text: item.nombre
                 }));
             });
-            //Llenar el select de tamaño de tatuaje
+            //Llenar el select de tamaï¿½o de tatuaje
             $.each(tamanoTatuajes, function (i, item) {
                 $('#selectTamanoTatuaje').append($('<option>', {
                     value: item.id,
                     text: item.nombre
                 }));
             });
-         
+
         });
     </script>
 </body>
