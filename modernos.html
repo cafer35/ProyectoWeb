@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Tattoo Studio</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   <!-- CSS -->
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">
 <link rel="stylesheet" href="assets/css/fonts/linecons/css/linecons.css">
@@ -24,6 +25,13 @@
   <!-- JQuery
   <script src="assets\js\jquery-3.2.0.js"></script>
 -->
+
+<!-- Slideshow -->
+<!-- bxSlider Javascript file -->
+<script src="assets\js\jquery.bxslider.min.js"></script>
+<!-- bxSlider CSS file -->
+<link href="assets\js\jquery.bxslider.css" rel="stylesheet" />
+
 
 </head>
 <body>
@@ -83,7 +91,55 @@
 
     <div class="sidebar-menu-inner">
     </div>
+    <h2>Modernos</h2>
+    <div class="row">
+        <div class="col-md-6">
+        <ul class="bxslider">
+          <li><img src="img/modernos/tattoo-arm-new-school-fantasy.jpg" height="600px"></li>
+          <li><img src="img/modernos/tattoo-arm-new-school-lighthouse.jpg" height="600px"></li>
+          <li><img src="img/modernos/tattoo-arm-new-school-matrioska.jpg" height="600px"></li>
+          <li><img src="img/modernos/tattoo-new_school-cat-owl-fantasy.jpg" height="600px"></li>
+          <li><img src="img/modernos/tattoo-new-school-men.jpg" height="600px"></li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <div class="panel panel-inverted"><!-- Add class "collapsed" to minimize the panel -->
+            <div class="panel-heading">
+              <h3 class="panel-title">Descripción</h3>
 
+              <div class="panel-options">
+                <a href="#" data-toggle="panel">
+                  <span class="collapse-icon">&ndash;</span>
+                  <span class="expand-icon">+</span>
+                </a>
+
+                <a href="#" data-toggle="remove">
+                  &times;
+                </a>
+              </div>
+            </div>
+            <div class="panel-body">
+
+              <p>El estilo de los tatuajes de la nueva escuela viene, tan fácil de asumir,
+                desde el estilo mas tradicional de la vieja escuela. Difiere de la anterior
+                especialmente para el uso de los colores: son, de hecho, mas brillante y con
+                una amplia gama de tonos. Las líneas están mas marcadas . Los temas representados
+                 son similares a los de la vieja escuela, de los cultivos de la marinería a los más
+                 patriotas,temas como corazones, frutos secos, y los motores de pistón, armas y
+                 cuchillos.</p>
+
+
+            </div>
+          </div>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/T25bKh6sfIc" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+
+    <script>
+      $(document).ready(function(){
+        $('.bxslider').bxSlider();
+      });
+    </script>
     <hr>
     <h6>Ulacit 2017 - Desarrollo de Aplicaciones Web</h6>
   </div>
