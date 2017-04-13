@@ -18,8 +18,18 @@
   <!-- Xenon JS -->
 
   <!-- JQuery UI -->
-  <script src="assets\jquery-ui-1.12.1\jquery-ui.js"></script>
-  <script src="assets\jquery-ui-1.12.1\jquery-ui.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Datepicker - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
 
   <!-- JQuery
   <script src="assets\js\jquery-3.2.0.js"></script>
@@ -84,6 +94,20 @@
     <div class="sidebar-menu-inner">
     </div>
 
+<h2>Envianos un correo para sacar tu cita:</h2>
+
+<h4><form action="mailto:jorgealbertopaniagua@hotmaiail.com" method="post" enctype="text/plain">
+Nombre:<br>
+<input type="text" name="name"><br>
+E-mail:<br>
+<input type="text" name="mail"><br>
+Fecha:<br>
+<input type="text" id="datepicker"><br><br>
+<input type="submit" value="Enviar">
+<input type="reset" value="Borrar">
+
+</form>
+</h4>
     <hr>
     <h6>Ulacit 2017 - Desarrollo de Aplicaciones Web</h6>
   </div>
