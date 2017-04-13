@@ -1,7 +1,9 @@
-<!DOCTYPE html >
+﻿<!DOCTYPE html >
 <html>
 <head>
   <title>Tattoo Studio</title>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
   <!-- CSS -->
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">
 <link rel="stylesheet" href="assets/css/fonts/linecons/css/linecons.css">
@@ -24,6 +26,13 @@
   <!-- JQuery
   <script src="assets\js\jquery-3.2.0.js"></script>
 -->
+
+<!-- Slideshow -->
+<!-- bxSlider Javascript file -->
+<script src="assets\js\jquery.bxslider.min.js"></script>
+<!-- bxSlider CSS file -->
+<link href="assets\js\jquery.bxslider.css" rel="stylesheet" />
+
 
 </head>
 <body>
@@ -83,6 +92,57 @@
 
     <div class="sidebar-menu-inner">
     </div>
+
+    <h2>Puntillismo</h2>
+    <div class="row">
+        <div class="col-md-6">
+        <ul class="bxslider">
+          <li><img src="img\oldSchool\old1.jpg" height="600px"></li>
+          <li><img src="img\oldSchool\old2.jpg" height="600px"></li>
+          <li><img src="img\oldSchool\old3.jpg" height="600px"></li>
+          <li><img src="img\oldSchool\old4.jpg" height="600px"></li>
+          <li><img src="img\oldSchool\old6.jpg" height="600px"></li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <div class="panel panel-inverted"><!-- Add class "collapsed" to minimize the panel -->
+						<div class="panel-heading">
+							<h3 class="panel-title">Descripción</h3>
+
+							<div class="panel-options">
+								<a href="#" data-toggle="panel">
+									<span class="collapse-icon">&ndash;</span>
+									<span class="expand-icon">+</span>
+								</a>
+
+								<a href="#" data-toggle="remove">
+									&times;
+								</a>
+							</div>
+						</div>
+            <div class="panel-body">
+
+							<p>E	n Estados Unidos los marineros introdujeron este arte pero ahora dándole un motivo más patriota,
+                la asociación entre tatuajes y delincuencia provino también de aquí,
+                los marinero eran a menudo gente que se embarcaba a largos viajes para evitar la justicia.
+                Los tatuajes de la vieja escuela nacen en tiempos de la segunda guerra mundial alrededor de los años 1900  de ahí su temática patriota.
+                Las características de este estilo son:
+                Tatuajes con líneas gruesa y firmes , con colores primarios; rojo, azul, amarillo y negro, con colores sólidos,
+                esto era para que el tatuaje durara mucho, ya que los marinos se exponían frecuentemente al sol,
+                el mar y trabajos forzados Con diseños equilibrados y no excesivos. </p>
+
+
+						</div>
+					</div>
+          <iframe width="560" height="315" src="https://www.youtube.com/watch?v=vy6XxaDJ8Xs" frameborder="0" allowfullscreen></iframe>
+				</div>
+      </div>
+
+    <script>
+      $(document).ready(function(){
+        $('.bxslider').bxSlider();
+      });
+    </script>
 
     <hr>
     <h6>Ulacit 2017 - Desarrollo de Aplicaciones Web</h6>
