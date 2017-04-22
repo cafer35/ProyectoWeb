@@ -1,338 +1,318 @@
 <!DOCTYPE html >
 <html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-  <title>Tattoo Studio</title>
-  <!-- CSS -->
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">
-<link rel="stylesheet" href="assets/css/fonts/linecons/css/linecons.css">
-<link rel="stylesheet" href="assets/css/fonts/fontawesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="assets/css/bootstrap.css">
-<link rel="stylesheet" href="assets/css/xenon-core.css">
-<link rel="stylesheet" href="assets/css/xenon-forms.css">
-<link rel="stylesheet" href="assets/css/xenon-components.css">
-<link rel="stylesheet" href="assets/css/xenon-skins.css">
-<link rel="stylesheet" href="assets/css/custom.css">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+      <title>Tattoo Studio</title>
 
-<script src="assets/js/jquery-1.11.1.min.js"></script>
+          <!-- CSS -->
+      <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">
+      <link rel="stylesheet" href="assets/css/fonts/linecons/css/linecons.css">
+      <link rel="stylesheet" href="assets/css/fonts/fontawesome/css/font-awesome.min.css">
+      <link rel="stylesheet" href="assets/css/bootstrap.css">
+      <link rel="stylesheet" href="assets/css/xenon-core.css">
+      <link rel="stylesheet" href="assets/css/xenon-forms.css">
+      <link rel="stylesheet" href="assets/css/xenon-components.css">
+      <link rel="stylesheet" href="assets/css/xenon-skins.css">
+      <link rel="stylesheet" href="assets/css/custom.css">
+      <script src="assets/js/jquery-1.11.1.min.js"></script>
+      <!-- Xenon JS -->
+      <!-- JQuery UI -->
+      <script src="assets\jquery-ui-1.12.1\jquery-ui.js"></script>
+      <script src="assets\jquery-ui-1.12.1\jquery-ui.min.js"></script>
+      <!-- JQuery
+         <script src="assets\js\jquery-3.2.0.js"></script>
+         -->
+      <script type="text/javascript">
+         jQuery(document).ready(function($)
+         {
 
-  <!-- Xenon JS -->
+           var map;
+           var geocoder = new google.maps.Geocoder();
 
-  <!-- JQuery UI -->
-  <script src="assets\jquery-ui-1.12.1\jquery-ui.js"></script>
-  <script src="assets\jquery-ui-1.12.1\jquery-ui.min.js"></script>
+           var markers = [];
+           var iterator = 0;
 
-  <!-- JQuery
-  <script src="assets\js\jquery-3.2.0.js"></script>
--->
+           var ulacit = new google.maps.LatLng(9.940932, -84.077720),
+             tempo = new google.maps.LatLng(9.939663, -84.145472);
 
-<script type="text/javascript">
-jQuery(document).ready(function($)
-{
-
-  var map;
-  var geocoder = new google.maps.Geocoder();
-
-  var markers = [];
-  var iterator = 0;
-
-  var ulacit = new google.maps.LatLng(9.940932, -84.077720),
-    tempo = new google.maps.LatLng(9.939663, -84.145472);
-
-  var neighborhoods = [
-    new google.maps.LatLng(9.940932, -84.077720),
+           var neighborhoods = [
+             new google.maps.LatLng(9.940932, -84.077720),
 
 
-  ];
+           ];
 
-  function initialize()
-  {
-    var mapOptions = {
-      zoom: 18,
-      center: ulacit
-    };
+           function initialize()
+           {
+             var mapOptions = {
+               zoom: 18,
+               center: ulacit
+             };
 
-    // Calculate Height
-    var el = document.getElementById('map-1'),
-      doc_height =
-        $(document).height() - 10 -
-        $(".main-content > .user-info-navbar").outerHeight() -
-        $(".main-content > .page-title").outerHeight() -
-        $(".google-map-env .map-toolbar").outerHeight();
+             // Calculate Height
+             var el = document.getElementById('map-1'),
+               doc_height =
+                 $(document).height() - 10 -
+                 $(".main-content > .user-info-navbar").outerHeight() -
+                 $(".main-content > .page-title").outerHeight() -
+                 $(".google-map-env .map-toolbar").outerHeight();
 
-    // Adjust map height to fit the document contianer
-    el.style.height = 400 + 'px';
+             // Adjust map height to fit the document contianer
+             el.style.height = 400 + 'px';
 
 
-    map = new google.maps.Map(el, mapOptions);
+             map = new google.maps.Map(el, mapOptions);
 
-    for (var i = 0; i < neighborhoods.length; i++)
-    {
-      setTimeout(function() {
-        addMarker();
-      }, i * 200 + 200);
-    }
+             for (var i = 0; i < neighborhoods.length; i++)
+             {
+               setTimeout(function() {
+                 addMarker();
+               }, i * 200 + 200);
+             }
 
-    // tempo Marker
-    new google.maps.Marker({
-      map: map,
-      position: tempo,
-      draggable: true
-    });
-  }
+             // tempo Marker
+             new google.maps.Marker({
+               map: map,
+               position: tempo,
+               draggable: true
+             });
+           }
 
-  function addMarker()
-  {
-    markers.push(new google.maps.Marker({
-      position: neighborhoods[iterator],
-      map: map,
-      draggable: true,
-      animation: google.maps.Animation.DROP
-    }));
+           function addMarker()
+           {
+             markers.push(new google.maps.Marker({
+               position: neighborhoods[iterator],
+               map: map,
+               draggable: true,
+               animation: google.maps.Animation.DROP
+             }));
 
-    iterator++;
-  }
+             iterator++;
+           }
 
-    google.maps.event.addDomListener(window, 'load', initialize);
+             google.maps.event.addDomListener(window, 'load', initialize);
 
-  // Toolbar
-  $("#go-sthlm").on('click', function(ev)
-  {
-    ev.preventDefault();
+           // Toolbar
+           $("#go-sthlm").on('click', function(ev)
+           {
+             ev.preventDefault();
 
-    map.panTo(tempo);
-  });
+             map.panTo(tempo);
+           });
 
-  $("#go-bln").on('click', function(ev)
-  {
-    ev.preventDefault();
+           $("#go-bln").on('click', function(ev)
+           {
+             ev.preventDefault();
 
-    map.panTo(ulacit);
-  });
+             map.panTo(ulacit);
+           });
 
-  $("#map-unzoom").on('click', function(ev)
-  {
-    ev.preventDefault();
+           $("#map-unzoom").on('click', function(ev)
+           {
+             ev.preventDefault();
 
-    map.setZoom(map.getZoom() - 1);
-  });
+             map.setZoom(map.getZoom() - 1);
+           });
 
-  $("#map-resetzoom").on('click', function(ev)
-  {
-    ev.preventDefault();
+           $("#map-resetzoom").on('click', function(ev)
+           {
+             ev.preventDefault();
 
-    map.setZoom(12);
-  });
+             map.setZoom(12);
+           });
 
-  $("#map-zoom").on('click', function(ev)
-  {
-    ev.preventDefault();
+           $("#map-zoom").on('click', function(ev)
+           {
+             ev.preventDefault();
 
-    map.setZoom(map.getZoom() + 1);
-  });
+             map.setZoom(map.getZoom() + 1);
+           });
 
-  $("#address-search").submit(function(ev)
-  {
-    ev.preventDefault();
+           $("#address-search").submit(function(ev)
+           {
+             ev.preventDefault();
 
-    var $inp = $(this).find('.form-control'),
-      address = $inp.val().trim();
+             var $inp = $(this).find('.form-control'),
+               address = $inp.val().trim();
 
-    $inp.prev().find('i').addClass('fa-spinner fa-spin');
+             $inp.prev().find('i').addClass('fa-spinner fa-spin');
 
-    if(address.length != 0)
-    {
-      geocoder.geocode( { 'address': address}, function(results, status)
-      {
-        $inp.prev().find('i').removeClass('fa-spinner fa-spin');
+             if(address.length != 0)
+             {
+               geocoder.geocode( { 'address': address}, function(results, status)
+               {
+                 $inp.prev().find('i').removeClass('fa-spinner fa-spin');
 
-        if(status == google.maps.GeocoderStatus.OK)
-        {
-          map.setCenter(results[0].geometry.location);
+                 if(status == google.maps.GeocoderStatus.OK)
+                 {
+                   map.setCenter(results[0].geometry.location);
 
-          var marker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location,
-            draggable: true
-          });
+                   var marker = new google.maps.Marker({
+                     map: map,
+                     position: results[0].geometry.location,
+                     draggable: true
+                   });
 
-        } else {
-          alert('Geocode was not successful for the following reason: ' + status);
-        }
-      });
-    }
-  });
-});
-</script>
-
-</head>
-<body>
-  <div class="container">
-
-    <nav class="navbar navbar-inverse" role="navigation">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-						<span class="sr-only">Toggle navigation</span>
-						<i class="fa-bars"></i>
-					</button>
-					<a class="navbar-brand" href="index.html">Tattoo Studio</a>
-				</div>
-
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-					<ul class="nav navbar-nav">
-            <li>
-               <a href="citas.html"><i class="fa fa-calendar"></i> Citas</a>
-            </li>
-            <li>
-               <a href="calculadora.html"><i class="fa fa-calculator"></i> Calculadora</a>
-            </li>
-            <li>
-               <a href="https://www.facebook.com/Tattoo-Studio-Ulacit-132379930633519/?ref=page_internal">
-               <i class="fa fa-facebook-square"></i> Facebook</a>
-            </li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <i class="fa fa-shekel"></i> Tipos de Tatuajes <b class="caret"></b></a>
-							<ul class="dropdown-menu dropdown-primary">
-								<li>
-									<a href="oldschool.html">Old School</a>
-								</li>
-								<li>
-									<a href="puntillismo.html">Puntillismo</a>
-								</li>
-								<li>
-									<a href="tribales.html">Tribales</a>
-								</li>
-								<li>
-									<a href="modernos.html">Modernos</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="contacto.html"><i class="fa fa-envelope"></i> Contacto</a>
-						</li>
-
-					</ul>
-				</div>
-				<!-- /.navbar-collapse -->
-			</nav>
-
-    <div class="sidebar-menu-inner">
-    </div>
-    <!-- Inserte el Formulario aqui -->
-    <h2>Contáctanos:</h2>
-    <div class="panel-body">
-       <form role="form" class="form-horizontal" role="form" action="mailto:cafer35@gmail.com">
-          <div class="form-group">
-             <div class="row">
-                <div class="col-md-4">
-                   <label class="control-label" for="field-1">Nombre:</label>
-                   <input type="text" class="form-control" id="field-1" placeholder="Escribe tu nombre" required="true">
-                </div>
-
-             </div>
-             <br>
-             <div class="row">
-                <div class="col-md-4">
-                   <label class="control-label" for="comments">Comentarios:</label>
-                   <textarea class="form-control" rows="5" id="comments" required="true"></textarea>
-                </div>
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-6">
-                  <h4>Central telefónica: (506) 2523-4000</h4>
-                  <h4>Fax: (506) 2233-9739</h4>
-                  <h4>Correo electrónico: <a href="mailto:info@ulacit.ac.cr">info@ulacit.ac.cr</a></h4>
-                  <h4>Apartado: 10235, San José 1000, Costa Rica</h4>
-                  <h4>Dirección: 100 metros sur del Periódico La República, Barrio Tournón.</h4>
-                </div>
-             </div>
-             <br>
-             <div class="row">
-                <div class="col-md-4">
-                   <label class="control-label" for="field-3">Correo</label>
-                   <input type="email" class="form-control" id="field-3" placeholder="Escriba su dirección de correo&hellip;" required="true">
-                </div>
-             </div>
-             <br>
-             <button class="btn btn-blue" type="submit">Enviar</button>
-          </div>
-       </form>
-    </div>
-    <!-- Inserte el Formulario aqui -->
-    <br>
-    <br>
-    <div class="google-map-env fill">
-
-				<div class="gmap full-page-google-map">
-					<div id="map-1"></div>
-				</div>
-
-				<!-- Map Toolbar -->
-				<div class="map-toolbar">
-					<div class="row">
-						<div class="col-sm-4">
-
-							<form role="form" method="post" id="address-search">
-								<div class="input-group input-group-minimal">
-									<span class="input-group-addon">
-										<i class="fa-map-marker"></i>
-									</span>
-									<input type="text" class="form-control" placeholder="Enter address">
-									<span class="input-group-btn">
-										<button type="submit" class="btn btn-white">Search</button>
-									</span>
-								</div>
-							</form>
-
-						</div>
-						<div class="col-sm-8 text-right">
-
-							<div class="btn-group">
-								<button type="button" class="btn btn-white" id="map-unzoom">-</button>
-								<button type="button" class="btn btn-white" id="map-resetzoom">Reset</button>
-								<button type="button" class="btn btn-white" id="map-zoom">+</button>
-							</div>
-
-							&nbsp;
-
-							<a href="#" class="btn btn-info" id="go-sthlm">Ir a Plaza Tempo</a>
-							<a href="#" class="btn btn-red" id="go-bln">Ir a Ulacit</a>
-
-						</div>
-					</div>
-				</div>
-			</div>
+                 } else {
+                   alert('Geocode was not successful for the following reason: ' + status);
+                 }
+               });
+             }
+           });
+         });
+      </script>
 
 
 
-    <hr>
-    <h6>Ulacit 2017 - Desarrollo de Aplicaciones Web</h6>
-  </div>
+   </head>
+   <body>
+      <div class="container">
+         <nav class="navbar navbar-inverse" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+               <span class="sr-only">Toggle navigation</span>
+               <i class="fa-bars"></i>
+               </button>
+               <a class="navbar-brand" href="index.html">Tattoo Studio</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+               <ul class="nav navbar-nav">
+                  <li>
+                     <a href="citas.html"><i class="fa fa-calendar"></i> Citas</a>
+                  </li>
+                  <li>
+                     <a href="calculadora.html"><i class="fa fa-calculator"></i> Calculadora</a>
+                  </li>
+                  <li>
+                     <a href="https://www.facebook.com/Tattoo-Studio-Ulacit-132379930633519/?ref=page_internal">
+                     <i class="fa fa-facebook-square"></i> Facebook</a>
+                  </li>
+                  <li class="dropdown">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                     <i class="fa fa-shekel"></i> Tipos de Tatuajes <b class="caret"></b></a>
+                     <ul class="dropdown-menu dropdown-primary">
+                        <li>
+                           <a href="oldschool.html">Old School</a>
+                        </li>
+                        <li>
+                           <a href="puntillismo.html">Puntillismo</a>
+                        </li>
+                        <li>
+                           <a href="tribales.html">Tribales</a>
+                        </li>
+                        <li>
+                           <a href="modernos.html">Modernos</a>
+                        </li>
+                     </ul>
+                  </li>
+               </ul>
+               <ul class="nav navbar-nav navbar-right">
+                  <li><a href="contacto.html"><i class="fa fa-envelope"></i> Contacto</a>
+                  </li>
+               </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+         </nav>
+         <div class="sidebar-menu-inner">
+         </div>
+         <!-- Inserte el Formulario aqui -->
+         <h2>Contáctanos:</h2>
+         <div class="panel-body">
+            <form role="form" class="form-horizontal" role="form" action="mailto:cafer35@gmail.com">
+               <div class="form-group">
+                  <div class="row">
+                     <div class="col-md-4">
+                        <label class="control-label" for="field-1">Nombre:</label>
+                        <input type="text" class="form-control" id="field-1" placeholder="Escribe tu nombre" required="true">
+                     </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                     <div class="col-md-4">
+                        <label class="control-label" for="comments">Comentarios:</label>
+                        <textarea class="form-control" rows="5" id="comments" required="true"></textarea>
+                     </div>
+                     <div class="col-md-2">
+                     </div>
+                     <div class="col-md-6">
+                        <h4>Central telefónica: (506) 2523-4000</h4>
+                        <h4>Fax: (506) 2233-9739</h4>
+                        <h4>Correo electrónico: <a href="mailto:info@ulacit.ac.cr">info@ulacit.ac.cr</a></h4>
+                        <h4>Apartado: 10235, San José 1000, Costa Rica</h4>
+                        <h4>Dirección: 100 metros sur del Periódico La República, Barrio Tournón.</h4>
+                     </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                     <div class="col-md-4">
+                        <label class="control-label" for="field-3">Correo</label>
+                        <input type="email" class="form-control" id="field-3" placeholder="Escriba su dirección de correo&hellip;" required="true">
+                     </div>
+                  </div>
+                  <br>
+                  <button class="btn btn-blue" type="submit">Enviar</button>
+               </div>
+            </form>
+         </div>
+         <!-- Inserte el Formulario aqui -->
+         <br>
+         <br>
+         <div class="google-map-env fill">
+            <div class="gmap full-page-google-map">
+               <div id="map-1"></div>
+            </div>
+            <!-- Map Toolbar -->
+            <div class="map-toolbar">
+               <div class="row">
+                  <div class="col-sm-4">
+                     <form role="form" method="post" id="address-search">
+                        <div class="input-group input-group-minimal">
+                           <span class="input-group-addon">
+                           <i class="fa-map-marker"></i>
+                           </span>
+                           <input type="text" class="form-control" placeholder="Enter address">
+                           <span class="input-group-btn">
+                           <button type="submit" class="btn btn-white">Search</button>
+                           </span>
+                        </div>
+                     </form>
+                  </div>
+                  <div class="col-sm-8 text-right">
+                     <div class="btn-group">
+                        <button type="button" class="btn btn-white" id="map-unzoom">-</button>
+                        <button type="button" class="btn btn-white" id="map-resetzoom">Reset</button>
+                        <button type="button" class="btn btn-white" id="map-zoom">+</button>
+                     </div>
+                     &nbsp;
+                     <a href="#" class="btn btn-info" id="go-sthlm">Ir a Plaza Tempo</a>
+                     <a href="#" class="btn btn-red" id="go-bln">Ir a Ulacit</a>
+                  </div>
+               </div>
+            </div>
+         </div>
 
-  <!-- Bottom Scripts -->
-  	<script src="assets/js/bootstrap.min.js"></script>
-  	<script src="assets/js/TweenMax.min.js"></script>
-  	<script src="assets/js/resizeable.js"></script>
-  	<script src="assets/js/joinable.js"></script>
-  	<script src="assets/js/xenon-api.js"></script>
-  	<script src="assets/js/xenon-toggles.js"></script>
 
-    <!-- Imported scripts on this page -->
-	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+         <hr>
+         <h4>Comentarios:</h4>
+         <iframe src="https://www.powr.io/plugins/comments/view?unique_label=b4409216_1492902744&external_type=iframe" width="100%" height="600" frameborder="0"></iframe>
+         <br>
+         <h6>Ulacit 2017 - Desarrollo de Aplicaciones Web</h6>
+      </div>
+      <!-- Bottom Scripts -->
+      <script src="assets/js/bootstrap.min.js"></script>
+      <script src="assets/js/TweenMax.min.js"></script>
+      <script src="assets/js/resizeable.js"></script>
+      <script src="assets/js/joinable.js"></script>
+      <script src="assets/js/xenon-api.js"></script>
+      <script src="assets/js/xenon-toggles.js"></script>
+      <!-- Imported scripts on this page -->
+      <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+      <!-- JavaScripts initializations and stuff -->
+      <script src="assets/js/xenon-custom.js"></script>
+      <div class="page-loading-overlay">
+         <div class="loader-2"></div>
+      </div>
 
-
-
-  	<!-- JavaScripts initializations and stuff -->
-  	<script src="assets/js/xenon-custom.js"></script>
-
-    <div class="page-loading-overlay">
-				<div class="loader-2"></div>
-			</div>
-
-</body>
+   </body>
 </html>
